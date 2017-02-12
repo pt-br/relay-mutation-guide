@@ -375,10 +375,10 @@ addPhone = () => {
  If you have followed this guide correctly, you should be able to add `Phones` to `Users`, what means that **YOUR MUTATION IS WORKING!** 
  
  ### Next Steps
- Now that you know exatly how does a mutation work, why don't you try to implement two more mutations to delete and edit `Phones`? It will be fun!
+ Now that you know exactly how a mutation work, why don't you try to implement two more mutations to delete and edit `Phones`? It will be fun!
  
  You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I'
  ve implemented these two mutations.
  
- I hope this guide have helped you!
+ I hope this guide have helped you! 
  

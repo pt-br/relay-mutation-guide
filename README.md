@@ -8,7 +8,7 @@
 * The examples I found on internet have less explanation and a lots of code that will output something only 1h after going through the tutorial;
 * Star Wars' example of facebook sucks.
 
-### Intro
+## Intro
 In this guide we will be creating a simple application that uses a real world example to get things easier for you.
 It's important to say that this is not a complete guide for GraphQL and Relay, the focus of this guide is only on **Mutations**.
 
@@ -19,7 +19,7 @@ So, before you get started, be sure to know at least the basics of:
 * GraphQL
 * GraphiQL
 
-### Getting the Playground
+## Getting the Playground
 As I said, we will be working on an application for this guide. You can check it running accessing a <a targe="_blank" href="https://relay-phones.herokuapp.com">demo build on heroku</a>. I've prepared a special boilerplate of this application, removing everything related to mutations, so we can do it together on this guide.
 
 Let's put the hand on the code, start by clonning the boilerplate:
@@ -43,7 +43,7 @@ Go to <a href="http://localhost:3000">http://localhost:3000</a> and check if you
 
 Ok, if you are here you already have the environment running. Let's go ahead.
 
-### Understanding what is the Database
+## Understanding what is the Database
 On a real application, the database usually would be based into some database management system, REST APIs, etc. For this guide, our database is pure JavaScript.
 
 We have three class files: **Database.js**, **User.js** and **Phone.js**. *Database.js* is our main entry class for database operations. GraphQL queries and mutations will comunicate with this file to read and change data. *User.js* is a class that contains its own methods and contains instances of *Phone.js* as well. 
@@ -57,7 +57,7 @@ A mutation is an operation that creates, changes or erases something (for readin
 
 It's important to know that a mutation affects both sides of your application: server(GraphQL) and client(Relay).
 
-### Creating a Mutation to Add a Phone
+## Creating a Mutation to Add a Phone
 Let's start by creating a mutation to add a new phone. 
 
 Go through ```/data/schema.js``` and observe that we are importing some GraphQL and GraphQL-Relay items in there.
@@ -134,7 +134,7 @@ export const Schema = new GraphQLSchema({
 });
 ```
 
-### Testing our Mutation
+## Testing our Mutation
 Ok, the GraphQL side of the mutation is done!
 
 It's important to notice that every change on the ```schema.js``` will require you to stop the server and run a command to update the schema. In order to update our schema, let's do it now. 
@@ -184,7 +184,7 @@ After adding the Nexus 5 using our mutation, you can refresh the application on 
 
 Yes, your mutation worked pretty good!
 
-### Your mutation working with Relay
+## Your mutation working with Relay
 Probably this is the part of the story you have been always stuck in, but don't worry, this time it will work.
 
 Let's create the Relay part of your mutation - Go to ```/js/mutations``` folder and create a file named ```AddPhoneMutation.js```. 
@@ -261,7 +261,7 @@ At this point, your mutation should be working fine.
 
 Now, we must configure how we will be sending the necessary data to our `AddPhoneMutation.js` (as `props`) into our React application, and setting how to call this mutation internally.
 
-### Calling our Mutation from React
+## Calling our Mutation from React
 
 You've learned a lot until here, and you are almost close to get you mutation working by Relay. Let's adapt out React components to receive and call our `AddPhoneMutation.js`.
 
@@ -374,7 +374,7 @@ addPhone = () => {
  
  If you have followed this guide correctly, you should be able to add `Phones` to `Users`, what means that **YOUR MUTATION IS WORKING!** 
  
- ### Next Steps
+ ## Next Steps
  Now that you know exactly how a mutation work, why don't you try to implement two more mutations to delete and edit `Phones`? It will be fun!
  
  You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I've implemented these two mutations.

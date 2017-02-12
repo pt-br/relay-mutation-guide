@@ -181,7 +181,7 @@ mutation {
 
 - What comes after the ```addPhone``` is the **outputFields** stuff.
 
-After adding the Nexus 5 using our mutation, you can refresh the application on <a href="http://localhost:8080">http://localhost:8080</a> and check that the phone is there. 
+After adding the Nexus 5 using our mutation, you can refresh the application at <a href="http://localhost:3000">http://localhost:3000</a> and check that the phone is there. 
 
 Yes, your mutation worked pretty good!
 

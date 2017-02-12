@@ -164,8 +164,8 @@ mutation {
       phones {
         edges {
           node {
-            id
             model
+	    image
           }
         }
       }

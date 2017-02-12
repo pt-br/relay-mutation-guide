@@ -23,3 +23,24 @@ So, before you get started, be sure to know at least the basics of:
 As I said, we will be working on an application for this guide. You can check it running accessing a <a targe="_blank" href="https://relay-phones.herokuapp.com">demo build on heroku</a>. I've prepared a special boilerplate of this application, removing everything related to mutations, so we can do it together on this guide.
 
 Let's put the hand on the code, start by clonning the boilerplate:
+```
+git clone https://github.com/pt-br/relay-phones-guide.git
+```
+
+Go inside the folder you've clonned the repository, and install the node modules:
+
+```
+npm install
+```
+
+Then, you can start the server by:
+
+```
+npm start
+```
+
+Go to <a href="http://localhost:3000">http://localhost:3000</a> and check if you can see the application running. If not, get back to the first step.
+
+Ok, if you are here you already have the environment running. Let's go ahead.
+
+### Understanding what is the Database

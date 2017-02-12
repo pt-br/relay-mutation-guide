@@ -311,8 +311,27 @@ import AddPhoneMutation from '../mutations/AddPhoneMutation';
 ```
 
 To keep this guide as simple as possible, the `AddModal` component already have all the logic implemented, so you just need to worry about the mutation process.
-Go to line 22, you will notice there’s a function in there called `addPhone`.  This function is triggered when user clicks on the `Add` button, that is on the modal.
+
+Go to line 22, you will notice there’s a function in there called `addPhone` -  This function is triggered when user clicks on the `Add` button, that is on the modal.
 
 Remove the `alert` that is inside of this function and let’s start working into passing data to our mutation. 
 
-The form inside of this mutation has two <a href="https://facebook.github.io/react/docs/uncontrolled-components.html">uncontrolled</a> inputs, their refs are `phoneModelInput` and `phoneImageInput`.
+The form inside of this modal has two <a href="https://facebook.github.io/react/docs/uncontrolled-components.html">uncontrolled</a> inputs, their refs are `phoneModelInput` and `phoneImageInput`, and we are going to get its values to send as data for our mutation.
+
+We will start declarating some constants inside of our function, so, right bellow the `addPhone()` declaration, write the following code:
+
+```javascript
+const { viewer } = this.props;
+const { phoneModelInput, phoneImageInput } = this.refs;
+```
+
+Now we have three variables: `viewer` (that we are receiving as `props`) and `phoneModelInput` / `phoneImageInput` that are our inputs.
+
+Ok, now we need to call our mutation sending the required data to our mutation. For this, we'll be using the `commitUpdate()` method from <a href="https://facebook.github.io/relay/docs/api-reference-relay-store.html">Relay.Store API</a>. This is one of the methods we can use to trigger a mutation.
+
+The `commitUpdate()` method accepts two callbacks to be triggered after the server response:
+
+- `onSuccess` is called if the mutation succeeded.
+- `onFailure` is called if the mutation failed.
+
+We will be implementing both, so we can close the `AddModal` when we reach `onSuccess` or show an error when we got an `onFailure` callback. In order to do that, let's implement `commitUpdate()` into our `addPhone()` function:

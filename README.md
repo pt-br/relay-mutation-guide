@@ -8,6 +8,16 @@
 * The examples I found on internet have less explanation and a lots of code that will output something only 1h after going through the tutorial;
 * Star Wars' example of facebook sucks.
 
+### Intro
+In this guide we will be creating a simple application that uses a real world example, to get things easier for you.
+It's important to say that this is not a complete guide for GraphQL and Relay, the focus of this guide is only on **Mutations**.
 
+So, before you get started, be sure to know at least the basics of:
 
+* ES6
+* React
+* GraphQL
+* GraphiQL
 
+### Getting the playground
+As I said, we will be working on an application for this guide. You can check it running accessing a <a targe="_blank" href="relay-phones.herokuapp.com">demo build on heroku</a>.

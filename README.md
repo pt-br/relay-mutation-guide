@@ -135,4 +135,49 @@ export var Schema = new GraphQLSchema({
 ```
 
 ### Testing our Mutation
-It's important to notice that every change on the
+Ok, the GraphQL side of the mutation is done!
+
+It's important to notice that every change on the ```schema.js``` will require you to stop the server and run a command to update the schema. In order to update our schema, let's do it now. 
+
+Stop the server, then run:
+
+```
+npm run update-schema
+```
+
+And then start the server again:
+
+```
+npm start
+```
+
+Alright, your schema is now updated and you can test your mutation.
+
+Let's go to our GraphiQL instance that is running on <a href="http://localhost:8080">http://localhost:8080</a>, I stronggly recommend you to run it on a separated tab.
+
+Run the following mutation on the left pannel:
+
+```
+mutation {
+	addPhone(input: {clientMutationId: "1" model: "Nexus 5", image: "https://goo.gl/Fq46CZ"}) {
+    viewer {
+      phones {
+        edges {
+          node {
+            id
+            model
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**Explanation**: We are calling the mutation by ```addPhone```, the same name we have exported on our Root Mutation. Then, we need to supply the inputs(remember when we declared it on the **inputFields**?). 
+
+As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don  need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
+
+After adding the Nexus 5 using our mutation, you can refresh the application on <a href="http://localhost:8080">http://localhost:8080</a> and check that the phone is there. 
+
+Yes, your mutation worked pretty good!

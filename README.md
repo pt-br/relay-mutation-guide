@@ -92,7 +92,7 @@ const AddPhoneMutation = mutationWithClientMutationId({
 
 **Explanation**: `mutationWithClientMutationId` is a helper to build mutations from the package `graphql-relay`. You don't need to know much more about this, you only need to know a few things:
 
-- It takes a name, as we used 'AddPhone'
+- It takes a name, as we used `AddPhone`
 - It takes inputFields;
 - It takes outPutFields;
 - It takes a mutation method (mutateAndGetPayload).

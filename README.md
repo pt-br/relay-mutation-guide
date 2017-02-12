@@ -247,7 +247,7 @@ export default class AddPhoneMutation extends Relay.Mutation {
 
 First of all, there's a sequence of the methods execution - I'll be explainig them at the same order they are executed. Also, part of these functions will be responsible to *send* data and other part will be *handling* the application after that the modifications happen.
 
-- Firstly, we declare a static object called `fragments`. We are sending a GraphQL fragment for this object, specificaly, an `User` fragment, because our mutation needs to know what is the `id` of the `User` that will be mutating. (Ok, we only have one `User` on this guide, but imagine this mutation handling an application that contains more than 1 `User`, it would require the `id` to know which `User` would be receiving a new `Phone`.
+- Firstly, we declare a static object called `fragments`. We are sending a GraphQL fragment for this object, specificaly an `User` fragment, because our mutation needs to know what is the `id` of the `User` that will be mutating. (Ok, we only have one `User` on this guide, but imagine this mutation handling an application that contains more than 1 `User`, it would require the `id` to know which `User` would be receiving a new `Phone`.
 
 - The `getMutation()` method uses the `Relay.QL`(you can read more about this <a href="https://facebook.github.io/relay/docs/api-reference-relay-ql.html#content">here</a>) method to specify which mutation we'll be operating. Remember when we exported our mutation into our Root Mutation? That's what we must use here.
 
@@ -255,4 +255,5 @@ First of all, there's a sequence of the methods execution - I'll be explainig th
 
 - `getFatQuery()` we will be returning a fragment containing everything that could change as a result of this mutation. In our case, what changes here is our `User`(viewer). You can notice that the fragment name of the Fat Query is `AddPhonePayload`, but this is not declared anywhere - Yes, it isn't. This name is auto generated internally and it just concats the name of your mutation (`AddPhone`) + Payload. Remember when we declared the name of your mutation on the `schema`?
 
-- At getConfigs()
+- At `getConfigs()` we advise how Relay should handle the `AddPhonePayload` returned by the server. In our case, we are using a `FIELDS_CHANGE` type (because our User has changed, now it has more Phones than before) and we specify the `id` of what is being changed, our `viewer` id (that is the `User` id).
+

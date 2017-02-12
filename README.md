@@ -178,6 +178,68 @@ mutation {
 
 As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don  need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
 
+What comes after the ```addPhone``` is the **outputFields** stuff.
+
 After adding the Nexus 5 using our mutation, you can refresh the application on <a href="http://localhost:8080">http://localhost:8080</a> and check that the phone is there. 
 
 Yes, your mutation worked pretty good!
+
+### Your mutation working with Relay
+Probably this is the part of the story you have been always stuck in, but don't worry, this time it will work.
+
+Let's create the Relay part of your mutation - Go to ```/js/mutations``` folder and create a file named ```AddPhoneMutation.js```. 
+
+Inside of this file, write the following code:
+
+```
+import Relay from 'react-relay';
+
+export default class AddPhoneMutation extends Relay.Mutation {
+
+  static fragments = {
+    viewer: () => Relay.QL`
+      fragment on User {
+        id
+      }
+    `,
+  };
+
+  getMutation() {
+    return Relay.QL`mutation{addPhone}`;
+  }
+
+  getVariables() {
+    let { phoneModel, phoneImage } = this.props;
+
+    /**
+     * If the fields come empty, force them to be null.
+     * This way, it won't be filled on GraphQL.
+     */
+    phoneModel.length === 0 ? phoneModel = null : false;
+    phoneImage.length === 0 ? phoneImage = null : false;
+
+    return {
+      model: phoneModel,
+      image: phoneImage,
+    };
+  }
+
+  getFatQuery() {
+    return Relay.QL`
+    fragment on AddPhonePayload {
+      viewer
+    }
+    `;
+  }
+
+  getConfigs() {
+    const { viewer } = this.props;
+    return [{
+      type: "FIELDS_CHANGE",
+      fieldIDs: {
+        viewer: viewer.id
+      }
+    }];
+  }
+}
+```

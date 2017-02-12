@@ -16,6 +16,7 @@ So, before you get started, be sure to know at least the basics of:
 
 * ES6
 * React
+* Relay (how it fits into a React application)
 * GraphQL
 * GraphiQL
 

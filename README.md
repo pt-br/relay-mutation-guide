@@ -33,7 +33,7 @@ Go inside the folder you've clonned the repository, and install the node modules
 npm install
 ```
 
-Then, you can start the server by:
+Don't worry about the code for now, just start the server by running. 
 
 ```
 npm start
@@ -56,3 +56,51 @@ PS: GraphQL is **not** a database, don't misunderstand that.
 A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations).
 
 It's important to know that a mutation happens in two sides: Server(GraphQL) and Client(Relay).
+
+### Creating a Mutation to Add a Phone
+Let's start by creating a mutation to add a new phone. 
+
+Go through ```/data/schema.js``` and observe that we are importing some GraphQL and GraphQL-Relay items in there.
+
+We are also importing our **Database.js** class and creating an instance of it inside of the schema. This is required in order to make possible doing manipulations into our database by using GraphQL, in other words: GraphQL will be able to access methods inside of **Database.js**.
+
+On ```schema.js```, write the following mutation at line 96:
+
+```
+const AddPhoneMutation = mutationWithClientMutationId({
+  name: 'AddPhone',
+  inputFields: {
+    model: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    image: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+  },
+  outputFields: {
+    viewer: {
+      type: UserType,
+      resolve: () => database.getUser(),
+    },
+  },
+  mutateAndGetPayload: ({ model, image }) => {
+    const newPhone = database.insertPhone(model, image);
+    return newPhone;
+  },
+});
+```
+
+**Explanation**: `mutationWithClientMutationId` is a helper to build mutations from the package `graphql-relay`. You don't need to know much more about this, you only need to know a few things:
+
+- It takes a name, as we used 'AddPhone'
+- It takes inputFields;
+- It takes outPutFields;
+- It takes a mutation method (mutateAndGetPayload).
+
+It's very important to have a **name** for our mutations. It will be used both on GraphQL and Relay.
+
+On the **inputFields** we must declare the things we are going to send for the mutation. Once we are going to add a new Phone, we must send a `model` and an `image` fields, once it's the required data to create a new Phone into our database.
+
+On the **outputFields** we are declaring what will be output by the mutation, in this case, we are just returning our User (that contains Phones).
+
+On **mutateAndGetPayload** we are fetching data provided by the **inputFields**, in this case, `model` and `image`. Then, we call a function from our `database` called `insertPhone`. We are sending both `model` and `image` to this function. Inside of `insertPhone`, there's a return for the new phone being added, and this is what we are returning on **mutateAndGetPayload**.

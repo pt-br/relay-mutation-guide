@@ -311,7 +311,8 @@ import AddPhoneMutation from '../mutations/AddPhoneMutation';
 ```
 
 To keep this guide as simple as possible, the `AddModal` component already have all the logic implemented, so you just need to worry about the mutation process.
-
 Go to line 22, you will notice there’s a function in there called `addPhone`.  This function is triggered when user clicks on the `Add` button, that is on the modal.
 
-Remove the `alert` that is inside of this function
+Remove the `alert` that is inside of this function and let’s start working into passing data to our mutation. 
+
+The form inside of this mutation has two <a href="https://facebook.github.io/react/docs/uncontrolled-components.html">uncontrolled</a> inputs, their refs are `phoneModelInput` and `phoneImageInput`.

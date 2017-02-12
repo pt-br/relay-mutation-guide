@@ -255,7 +255,7 @@ First of all, there's a sequence of the methods execution - I'll be explainig th
 
 - `getFatQuery()` we will be returning a fragment containing everything that could change as a result of this mutation. In our case, what changes here is our `User`(viewer). You can notice that the fragment name of the Fat Query is `AddPhonePayload`, but this is not declared anywhere - Yes, it isn't. This name is auto generated internally and it just concats the name of your mutation (`AddPhone`) + Payload. Remember when we declared the name of your mutation on the `schema`?
 
-- At `getConfigs()` we advise how Relay should handle the `AddPhonePayload` returned by the server. In our case, we are using a `FIELDS_CHANGE` type (because our User has changed, now it has more Phones than before) and we specify the `id` of what is being changed, our `viewer` id (that is the `User` id).
+- At `getConfigs()` we advise how Relay should handle the `AddPhonePayload` returned by the server. In our case, we are using a `FIELDS_CHANGE` type (because our User has changed, now it has more Phones than before) and we specify the `id` of what is being changed, our `viewer` id (that is the `User` id). Here, like we passed the **inputFields** data to `getVariables()`, we must pass the `viewer` as a `prop` too. - We'll be reviewing this later.
 
 At this point, your mutation should be working fine.
 
@@ -263,4 +263,5 @@ Now, we must configure how we will be sending the necessary data to our `AddPhon
 
 ### Calling our Mutation from React
 
-You
+You've learned a lot until here, and you are almost close to get you mutation working by Relay. Let's adapt out React components to receive and call our `AddPhoneMutation.js`.
+

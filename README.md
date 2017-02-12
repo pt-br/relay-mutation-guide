@@ -55,7 +55,7 @@ PS: GraphQL is **not** a database, don't misunderstand that.
 ### What is a Mutation
 A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations). A mutation will always do something, then fetch something.
 
-It's important to know that a mutation happens in two sides: Server(GraphQL) and Client(Relay).
+It's important to know that a mutation affects both sides of your application: server(GraphQL) and client(Relay).
 
 ### Creating a Mutation to Add a Phone
 Let's start by creating a mutation to add a new phone. 
@@ -247,7 +247,7 @@ export default class AddPhoneMutation extends Relay.Mutation {
 
 First of all, there's a sequence of the methods execution - I'll be explainig them at the same order they are executed. Also, part of these functions will be responsible to *send* data and other part will be *handling* the application after that the modifications happen.
 
-- Firstly, we declare a static object called `fragments`. We are sending a GraphQL fragment for this object, specificaly an `User` fragment, because our mutation needs to know what is the `id` of the `User` that will be mutating. (Ok, we only have one `User` on this guide, but imagine this mutation handling an application that contains more than 1 `User`, it would require the `id` to know which `User` would be receiving a new `Phone`.
+- Firstly, we declare a static method called `fragments`. This holds the required data to run our mutation - In this case, our `User` id
 
 - The `getMutation()` method uses the `Relay.QL`(you can read more about this <a href="https://facebook.github.io/relay/docs/api-reference-relay-ql.html#content">here</a>) method to specify which mutation we'll be operating. Remember when we exported our mutation into our Root Mutation? That's what we must use here.
 

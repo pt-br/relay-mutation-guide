@@ -265,3 +265,32 @@ Now, we must configure how we will be sending the necessary data to our `AddPhon
 
 You've learned a lot until here, and you are almost close to get you mutation working by Relay. Let's adapt out React components to receive and call our `AddPhoneMutation.js`.
 
+Go through `views/PhoneView.js` and import our mutation file at line 5:
+
+```javascript
+import AddPhoneMutation from '../mutations/AddPhoneMutation';
+```
+
+Scroll down until you reach the `Relay Container` of this view at line 119. Modify the fragment, including the mutation fragment at line 123. It should look like this:
+
+```javascript
+export default Relay.createContainer(PhoneView, {
+  fragments: {
+    viewer: () => Relay.QL`
+      fragment on User {
+        ${AddPhoneMutation.getFragment('viewer')}
+        phones(first: 908098879) {
+          edges {
+            node {
+              phoneId
+              model
+              image
+            },
+          },
+        },
+      }
+    `,
+  },
+});
+``
+

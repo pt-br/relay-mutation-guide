@@ -1,6 +1,6 @@
 # You gonna learn mutations today.
 
-[![You Gonna Learn Today!](http://img.youtube.com/vi/ExPzkvMutmI/0.jpg)](http://www.youtube.com/watch?v=ExPzkvMutmI "You Gonna Learn Today")
+[![You Gonna Learn Today!](http://i.imgur.com/6mE3XvY.png)](http://www.youtube.com/watch?v=ExPzkvMutmI "You Gonna Learn Today")
 
 #### This guide will fit if you find yourself into one(or more) of the following situations:
 * I'm freaking out about how to handle mutations on GraphQL and Relay;

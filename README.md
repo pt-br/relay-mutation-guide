@@ -52,7 +52,7 @@ I'm not going deeper inside of this files, but you can read them if you want - T
 
 PS: GraphQL is **not** a database, don't misunderstand that.
 
-### What is a Mutation
+## What is a Mutation
 A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations). A mutation will always do something, then fetch something.
 
 It's important to know that a mutation affects both sides of your application: server(GraphQL) and client(Relay).

@@ -377,8 +377,7 @@ addPhone = () => {
  ### Next Steps
  Now that you know exactly how a mutation work, why don't you try to implement two more mutations to delete and edit `Phones`? It will be fun!
  
- You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I'
- ve implemented these two mutations.
+ You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I've implemented these two mutations.
  
  :octocat::octocat: I hope this guide have helped you! :octocat::octocat:
  

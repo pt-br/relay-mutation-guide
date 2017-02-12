@@ -380,5 +380,5 @@ addPhone = () => {
  You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I'
  ve implemented these two mutations.
  
- I hope this guide have helped you! 
+ :octocat::octocat: I hope this guide have helped you! :octocat::octocat:
  

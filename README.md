@@ -44,11 +44,11 @@ Go to <a href="http://localhost:3000">http://localhost:3000</a> and check if you
 Ok, if you are here you already have the environment running. Let's go ahead.
 
 ### Understanding what is the Database
-On a real application, the database usually would be based into some database management system, REST APIs, etc. For this guide, our Database is pure JavaScript.
+On a real application, the database usually would be based into some database management system, REST APIs, etc. For this guide, our database is pure JavaScript.
 
-We have three class files: **Database.js**, **User.js** and **Phone.js**. *Database.js* is our main entry class for database operations. GraphQL queries and mutations will comunicate with this file to change data. *User.js* is a class that contains its own methods and contains instances of *Phone.js* as well. 
+We have three class files: **Database.js**, **User.js** and **Phone.js**. *Database.js* is our main entry class for database operations. GraphQL queries and mutations will comunicate with this file to read and change data. *User.js* is a class that contains its own methods and contains instances of *Phone.js* as well. 
 
-I'm not going deeper inside of this files, but you can read them if you want - they are pretty well commented and I'm sure you'll easily understand how they work.
+I'm not going deeper inside of this files, but you can read them if you want - They are pretty well commented and I'm sure you'll easily understand how they work.
 
 PS: GraphQL is **not** a database, don't misunderstand that.
 
@@ -66,7 +66,7 @@ We are also importing our **Database.js** class and creating an instance of it i
 
 On ```schema.js```, write the following mutation at line 96:
 
-```
+```javascript
 const AddPhoneMutation = mutationWithClientMutationId({
   name: 'AddPhone',
   inputFields: {
@@ -114,7 +114,7 @@ Like the Root query, you must specify a "root mutation" that will contain all of
 
 On ```schema.js``` at line 134, write your root mutation:
 
-```
+```javascript
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
@@ -127,8 +127,8 @@ I think it's self-explanatory.
 
 Then, at line 145, modify your Schema export to contain the root mutation. It should be like this:
 
-```
-export var Schema = new GraphQLSchema({
+```javascript
+export const Schema = new GraphQLSchema({
   query: Root,
   mutation: Mutation,
 });

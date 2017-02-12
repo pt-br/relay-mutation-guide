@@ -302,4 +302,16 @@ If you check the line 51 of `PhoneView.js` you will notice that we have a compon
 <AddModal viewer={viewer} handleModal={this.handleModal}/>
 ```
 
-This component receives two `props`: `viewer` and `handleModal`. The `viewer` comes from our `Relay Container` per `props` that Relay send to our React components. We are sending this to `AddModal` because we're going to call our mutation inside of this component.
+This component receives two `props`: `viewer` and `handleModal`. The `viewer` comes from our `Relay Container` as a  `prop` that Relay send to our React components. We are sending this to `AddModal` because we're going to call our mutation inside of this component - So let's do it.
+
+Go to `js/components/AddModal.js`  and import our mutation here too, at line 4:
+
+```javascript
+import AddPhoneMutation from '../mutations/AddPhoneMutation';
+```
+
+To keep this guide as simple as possible, the `AddModal` component already have all the logic implemented, so you just need to worry about the mutation process.
+
+Go to line 22, you will notice there’s a function in there called `addPhone`.  This function is triggered when user clicks on the `Add` button, that is on the modal.
+
+Remove the `alert` that is inside of this function

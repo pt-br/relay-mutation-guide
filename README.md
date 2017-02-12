@@ -53,7 +53,7 @@ I'm not going deeper inside of this files, but you can read them if you want - t
 PS: GraphQL is **not** a database, don't misunderstand that.
 
 ### What is a Mutation
-A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations).
+A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations). A mutation will always do something, then fetch something.
 
 It's important to know that a mutation happens in two sides: Server(GraphQL) and Client(Relay).
 
@@ -103,4 +103,9 @@ On the **inputFields** we must declare the things we are going to send for the m
 
 On the **outputFields** we are declaring what will be output by the mutation, in this case, we are just returning our User (that contains Phones).
 
-On **mutateAndGetPayload** we are fetching data provided by the **inputFields**, in this case, `model` and `image`. Then, we call a function from our `database` called `insertPhone`. We are sending both `model` and `image` to this function. Inside of `insertPhone`, there's a return for the new phone being added, and this is what we are returning on **mutateAndGetPayload**.
+On **mutateAndGetPayload** we are using data provided by the **inputFields**, in this case, `model` and `image`. Then we call a function from our **Database.js** called `insertPhone`, we are sending both `model` and `image` to this function. Inside of `insertPhone`, there's a return for the new phone being added, and this is what we are returning on **mutateAndGetPayload**.
+
+It got simple for you now? I hope so :p 
+
+### Testing our Mutation
+It's important to notice that every change on the

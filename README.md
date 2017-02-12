@@ -318,7 +318,7 @@ Remove the `alert` that is inside of this function and let’s start working int
 
 The form inside of this modal has two <a href="https://facebook.github.io/react/docs/uncontrolled-components.html">uncontrolled</a> inputs, their refs are `phoneModelInput` and `phoneImageInput`, and we are going to get its values to send as data for our mutation.
 
-We will start declarating some constants inside of our function, so, right bellow the `addPhone()` declaration, write the following code:
+We will start declarating some constants inside of our function, so, right below the `addPhone()` declaration, write the following code:
 
 ```javascript
 const { viewer } = this.props;

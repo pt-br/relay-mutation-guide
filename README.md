@@ -334,4 +334,36 @@ The `commitUpdate()` method accepts two callbacks to be triggered after the serv
 - `onSuccess` is called if the mutation succeeded.
 - `onFailure` is called if the mutation failed.
 
-We will be implementing both, so we can close the `AddModal` when we reach `onSuccess` or show an error when we got an `onFailure` callback. In order to do that, let's implement `commitUpdate()` into our `addPhone()` function:
+We will be implementing both, so we can close the `AddModal` when we reach `onSuccess` or show an error when we got an `onFailure` callback. In order to do that, let's implement `commitUpdate()` into our `addPhone()` function, it should look like this:
+
+```javascript
+addPhone = () => {
+    const { viewer } = this.props;
+    const { phoneModelInput, phoneImageInput } = this.refs;
+
+    Relay.Store.commitUpdate(
+      new AddPhoneMutation({
+        viewer,
+        phoneModel: phoneModelInput.value,
+        phoneImage: phoneImageInput.value,
+      }),
+      {
+        onFailure: (transaction) => {
+          this.setState({
+            error: 'Something went wrong, please try again.',
+          });
+        },
+        onSuccess: (response) => {
+          this.close();
+        },
+      },
+    );
+  };
+  ```
+  **Explanation**: We are calling the `commitUpdate()` from Relay.Store, then we create a new instance of our mutation by using `new AddPhoneMutation` - At this point, we will be sending the `props` we need inside our mutation.
+  
+ - The `viewer` prop will be used inside of the mutation on the `getConfigs()` function (Remember that?)
+ 
+ - The `phoneModel` and `phoneImage` are receiving the value from our inputs and will be used by `getVariables()` function inside of the mutation. Then that function will be sending this data to the **inputFields** we declared at the `schema` (Makes sense now, right? xD)
+ 
+ - At the `onFailure` callback, we are setting a `state`

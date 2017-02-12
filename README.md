@@ -176,9 +176,9 @@ mutation {
 
 **Explanation**: We are calling the mutation by ```addPhone```, the same name we have exported on our Root Mutation. Then, we need to supply the inputs(remember when we declared it on the **inputFields**?). 
 
-As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don't need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
+- As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don't need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
 
-What comes after the ```addPhone``` is the **outputFields** stuff.
+- What comes after the ```addPhone``` is the **outputFields** stuff.
 
 After adding the Nexus 5 using our mutation, you can refresh the application on <a href="http://localhost:8080">http://localhost:8080</a> and check that the phone is there. 
 
@@ -245,6 +245,10 @@ export default class AddPhoneMutation extends Relay.Mutation {
 ```
 **Explanation**: At the first moment it could be strange for you, but it will make sense. 
 
-First of all, there's an order of this methods execution, and I'll be explainig them at the same order they are executed.
+First of all, there's a sequence of the methods execution - I'll be explainig them at the same order they are executed. Also, part of these functions will be responsible to *send* data and other part will be *handling* the application after that the modifications happen.
 
-Firstly, we declare a static object called `fragments`. 
+- Firstly, we declare a static object called `fragments`. We are sending a GraphQL fragment for this object, specificaly, an `User` fragment, because our mutation needs to know what is the `id` of the `User` that will be mutating. (Ok, we only have one `User` on this guide, but imagine this mutation handling an application that contains more than 1 `User`, it would require the `id` to know which `User` would be receiving a new `Phone`.
+
+- The `getMutation()` method uses the `Relay.QL`(you can read more about this <a href="https://facebook.github.io/relay/docs/api-reference-relay-ql.html#content">here</a>) method to specify which mutation we'll be operating. Remember when we exported our mutation into our Root Mutation? That's what we must use here.
+
+- getVariables() 

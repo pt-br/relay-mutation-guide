@@ -292,5 +292,14 @@ export default Relay.createContainer(PhoneView, {
     `,
   },
 });
-``
+```
 
+Ok, now your view is ready to receive the modifications comming from the mutation - It's time to set up how we will trigger it and pass the data as `props`.
+
+If you check the line 51 of `PhoneView.js` you will notice that we have a component called `AddModal`:
+
+```javascript
+<AddModal viewer={viewer} handleModal={this.handleModal}/>
+```
+
+This component receives two `props`: `viewer` and `handleModal`. The `viewer` comes from our `Relay Container` per `props` that Relay send to our React components. We are sending this to `AddModal` because we're going to call our mutation inside of this component.

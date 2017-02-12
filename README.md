@@ -251,4 +251,8 @@ First of all, there's a sequence of the methods execution - I'll be explainig th
 
 - The `getMutation()` method uses the `Relay.QL`(you can read more about this <a href="https://facebook.github.io/relay/docs/api-reference-relay-ql.html#content">here</a>) method to specify which mutation we'll be operating. Remember when we exported our mutation into our Root Mutation? That's what we must use here.
 
-- getVariables() 
+- On `getVariables()` we will be collecting the necessary data to send to our **inputFields**. Remember when we create them into our mutation on GraphQL? This function must return an object that matches exactly the **inputFields** we've declared on the `schema`. You will be sending this data by `props`, inside of your application from your React components. - We'll be reviewing this later.
+
+- `getFatQuery()` we will be returning a fragment containing everything that could change as a result of this mutation. In our case, what changes here is our `User`(viewer). You can notice that the fragment name of the Fat Query is `AddPhonePayload`, but this is not declared anywhere - Yes, it isn't. This name is auto generated internally and it just concats the name of your mutation (`AddPhone`) + Payload. Remember when we declared the name of your mutation on the `schema`?
+
+- At getConfigs()

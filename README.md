@@ -99,7 +99,7 @@ const AddPhoneMutation = mutationWithClientMutationId({
 
 It's very important to have a **name** for our mutations. It will be used both on GraphQL and Relay.
 
-On the **inputFields** we must declare the things we are going to send for the mutation. Once we are going to add a new Phone, we must send a `model` and an `image` fields, once it's the required data to create a new Phone into our database.
+On the **inputFields** we must declare the things we are going to send for the mutation. Once we are going to add a new Phone, we must send a `model` and an `image` fields, that are the required data to create a new Phone into our database.
 
 On the **outputFields** we are declaring what will be output by the mutation, in this case, we are just returning our User (that contains Phones).
 

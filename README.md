@@ -44,7 +44,7 @@ Go to <a href="http://localhost:3000">http://localhost:3000</a> and check if you
 Ok, if you are here you already have the environment running. Let's go ahead.
 
 ### Understanding what is the Database
-On a real application, the database usually would be based into some database management system, Rest APIs and etc. For this guide, our Database is pure JavaScript.
+On a real application, the database usually would be based into some database management system, REST APIs, etc. For this guide, our Database is pure JavaScript.
 
 We have three class files: **Database.js**, **User.js** and **Phone.js**. *Database.js* is our main entry class for database operations. GraphQL queries and mutations will comunicate with this file to change data. *User.js* is a class that contains its own methods and contains instances of *Phone.js* as well. 
 
@@ -52,3 +52,7 @@ I'm not going deeper inside of this files, but you can read them if you want - t
 
 PS: GraphQL is **not** a database, don't misunderstand that.
 
+### What is a Mutation
+A mutation is an operation that creates, changes or erases something (for reading, we use queries and not mutations).
+
+It's important to know that a mutation happens in two sides: Server(GraphQL) and Client(Relay).

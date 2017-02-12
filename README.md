@@ -359,7 +359,7 @@ addPhone = () => {
       },
     );
   };
-  ```
+```
   **Explanation**: We are calling the `commitUpdate()` from Relay.Store, then we create a new instance of our mutation by using `new AddPhoneMutation` - At this point, we will be sending the `props` we need inside our mutation.
   
  - The `viewer` prop will be used inside of the mutation on the `getConfigs()` function (Remember that?)

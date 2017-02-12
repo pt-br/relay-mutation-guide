@@ -107,5 +107,32 @@ On **mutateAndGetPayload** we are using data provided by the **inputFields**, in
 
 It got simple for you now? I hope so :p 
 
+### Write a container for our Mutations
+Ok, you have a mutation and now you need to tell GraphQL that you do. 
+
+Like the Root query, you must specify a "root mutation" that will contain all of your mutations.
+
+On ```schema.js``` at line 134, write your root mutation:
+
+```
+const Mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: () => ({
+    addPhone: AddPhoneMutation,
+  }),
+});
+```
+
+I think it's self-explanatory.
+
+Then, at line 145, modify your Schema export to contain the root mutation. It should be like this:
+
+```
+export var Schema = new GraphQLSchema({
+  query: Root,
+  mutation: Mutation,
+});
+```
+
 ### Testing our Mutation
 It's important to notice that every change on the

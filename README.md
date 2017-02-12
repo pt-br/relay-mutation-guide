@@ -157,7 +157,7 @@ Let's go to our GraphiQL instance that is running on <a href="http://localhost:8
 
 Run the following mutation on the left pannel:
 
-```
+```javascript
 mutation {
 	addPhone(input: {clientMutationId: "1" model: "Nexus 5", image: "https://goo.gl/Fq46CZ"}) {
     viewer {
@@ -191,7 +191,7 @@ Let's create the Relay part of your mutation - Go to ```/js/mutations``` folder 
 
 Inside of this file, write the following code:
 
-```
+```javascript
 import Relay from 'react-relay';
 
 export default class AddPhoneMutation extends Relay.Mutation {
@@ -243,3 +243,8 @@ export default class AddPhoneMutation extends Relay.Mutation {
   }
 }
 ```
+**Explanation**: At the first moment it could be strange for you, but it will make sense. 
+
+First of all, there's an order of this methods execution, and I'll be explainig them at the same order they are executed.
+
+Firstly, we declare a static object called `fragments`. 

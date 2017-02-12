@@ -176,7 +176,7 @@ mutation {
 
 **Explanation**: We are calling the mutation by ```addPhone```, the same name we have exported on our Root Mutation. Then, we need to supply the inputs(remember when we declared it on the **inputFields**?). 
 
-As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don  need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
+As you can notice, we are sending a parameter that was not into our **inputFields** declaration - `clientMutationId`. You don't need to worry about this field, it will be automatically filled by Relay under the hood. We only need to spoof it on GraphiQL(and any string value should work).
 
 What comes after the ```addPhone``` is the **outputFields** stuff.
 

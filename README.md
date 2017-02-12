@@ -153,7 +153,7 @@ npm start
 
 Alright, your schema is now updated and you can test your mutation.
 
-Let's go to our GraphiQL instance that is running on <a href="http://localhost:8080">http://localhost:8080</a>, I stronggly recommend you to run it on a separated tab.
+Let's go to our GraphiQL instance that is running on <a href="http://localhost:8080">http://localhost:8080</a>, I strongly recommend you to run it on a separate tab.
 
 Run the following mutation on the left pannel:
 

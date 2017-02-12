@@ -33,7 +33,7 @@ Go inside the folder you've clonned the repository, and install the node modules
 npm install
 ```
 
-Don't worry about the code for now, just start the server by running. 
+Don't worry about the code for now, just start the server by running:
 
 ```
 npm start

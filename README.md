@@ -20,4 +20,4 @@ So, before you get started, be sure to know at least the basics of:
 * GraphiQL
 
 ### Getting the playground
-As I said, we will be working on an application for this guide. You can check it running accessing a <a targe="_blank" href="relay-phones.herokuapp.com">demo build on heroku</a>.
+As I said, we will be working on an application for this guide. You can check it running accessing a <a targe="_blank" href="https://relay-phones.herokuapp.com">demo build on heroku</a>.

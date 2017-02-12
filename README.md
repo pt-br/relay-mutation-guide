@@ -257,3 +257,10 @@ First of all, there's a sequence of the methods execution - I'll be explainig th
 
 - At `getConfigs()` we advise how Relay should handle the `AddPhonePayload` returned by the server. In our case, we are using a `FIELDS_CHANGE` type (because our User has changed, now it has more Phones than before) and we specify the `id` of what is being changed, our `viewer` id (that is the `User` id).
 
+At this point, your mutation should be working fine.
+
+Now, we must configure how we will be sending the necessary data to our `AddPhoneMutation.js` (as `props`) into our React application, and setting how to call this mutation internally.
+
+### Calling our Mutation from React
+
+You

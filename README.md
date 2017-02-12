@@ -366,4 +366,19 @@ addPhone = () => {
  
  - The `phoneModel` and `phoneImage` are receiving the value from our inputs and will be used by `getVariables()` function inside of the mutation. Then that function will be sending this data to the **inputFields** we declared at the `schema` (Makes sense now, right? xD)
  
- - At the `onFailure` callback, we are setting a `state`
+ - At the `onFailure` callback we are setting a `state` that will just render an error into our `AddModal` component (You can reach this callback by clicking `Add` without filling the inputs).
+ 
+ - At the `onSuccess` callback we just call a function that closes our modal.
+ 
+ Ok then, time to test it! Go to <a href="http://localhost:3000">http://localhost:3000</a> and try adding a new Phone.
+ 
+ If you have followed this guide correctly, you should be able to add `Phones` to `Users`, what means that **YOUR MUTATION IS WORKING!** 
+ 
+ ### Next Steps
+ Now that you know exatly how does a mutation work, why don't you try to implement two more mutations to delete and edit `Phones`? It will be fun!
+ 
+ You can also check the <a href="https://github.com/pt-br/relay-phones">full application</a> in case you need to know how I'
+ ve implemented these two mutations.
+ 
+ I hope this guide have helped you!
+ 

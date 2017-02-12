@@ -107,7 +107,7 @@ On **mutateAndGetPayload** we are using data provided by the **inputFields**, in
 
 It got simple for you now? I hope so :p 
 
-### Write a container for our Mutations
+## Write a container for our Mutations
 Ok, you have a mutation and now you need to tell GraphQL that you do. 
 
 Like the Root query, you must specify a "root mutation" that will contain all of your mutations.
